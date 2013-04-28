@@ -11,6 +11,10 @@
 		<script src="cordova-2.3.0.js"></script>
 		<script src="jquery.js"></script>
 		<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+		<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+		<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+		<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/additional-methods.js"></script>
+		<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/additional-methods.min.js"></script>
 		<script src="js/utility.js"></script>
 		<script src="js/index.js"></script>
 		<title>Going Green</title>
@@ -34,17 +38,15 @@
 					<input type="checkbox" name="checkgroup" id="chkBox-01">
 					<label for="chkBox-01">Ballast Discrimantor</label>
 					<input type="checkbox" name="checkgroup" id="chkBox-02">
-					<label for="chkBox-02">Camera</label>
-					<input type="checkbox" name="checkgroup" id="chkBox-03">
-					<label for="chkBox-03">Light Meter</label>
-					<input type="checkbox" name="checkgroup"  id="chkBox-04">
-					<label for="chkBox-04">Counter</label>
+					<label for="chkBox-02">Light Meter</label>
+					<input type="checkbox" name="checkgroup"  id="chkBox-03">
+					<label for="chkBox-03">Counter</label>
+					<input type="checkbox" name="checkgroup" id="chkBox-04">
+					<label for="chkBox-04">Square footage calc</label>
 					<input type="checkbox" name="checkgroup" id="chkBox-05">
-					<label for="chkBox-05">Square footage calc</label>
+					<label for="chkBox-05">Binocular or Monocular</label>
 					<input type="checkbox" name="checkgroup" id="chkBox-06">
-					<label for="chkBox-06">Binocular or Monocular</label>
-					<input type="checkbox" name="checkgroup" id="chkBox-07">
-					<label for="chkBox-07">Safety Equipment</label>
+					<label for="chkBox-06">Safety Equipment</label>
 				</fieldset>
 			</form>
 			<div id="deviceready" class="blink">
@@ -110,36 +112,38 @@
 			</div><!-- /header -->
 
 			<div data-role="content">
-				<p>
+				<p id="infoNeeded">
 					*displays currently needed information*
 				</p>
 				<ul data-role="listview" data-inset="true" data-filter="false">
-					<form>
+					<form id="clientInfo" name="clientInfo">
+						
 						<h3>Legal Business Name</h3>
-						<input type="text" name="businessname">
+						<input type="text" id="businessName" name="businessName" class="required" title="Please enter business Name">
 						<br>
 						<h3>Contact Name</h3>
-						<input type="text" name="firstname">
+						<input type="text" id="firstName" name="firstName" >
 						<br>
 						<h3>Contact Title</h3>
-						<input type="text" name="lastname">
+						<input type="text" id="lastName" >
 						<br>
 						<h3>Contact Email</h3>
-						<input type="text" name="lastname">
+						<input type="text" id="email" name="email">
 						<br>
 						<h3>Contact Phone</h3>
-						<input type="text" name="lastname">
+						<input type="text" id="phoneNum" name="phoneNum">
 						<br>
 						<h3>Weekly Hours of Operation</h3>
 						<br>
+						<div name="hoursOp"data-role="controlgroup" data-type="horizontal">
 						M-F
-						<input type="time" name="date">
+						<input type="time" name="weekdays" class="required" title="please enter "><input type="time" name="weekdays" class="required" title="please enter ">
 						Saturday
-						<input type="time" name="date">
+						<input type="time" name="saturday" class="required">
 						Sunday
-						<input type="time" name="date">
+						<input type="time" name="sunday" class="required">
 						<br>
-
+						</div>
 						<h3>Facility Type</h3>
 						<input type="text" name="firstname">
 						<br>
@@ -166,10 +170,10 @@
 						<br>
 						<!-- needs validation -->
 						<h3>Account Number</h3>
-						<input type="text" name="accountnum">
+						<input type="text" name="accountnum" class="required" title="Account number is required">
 						<br>
-						<!-- needs validation -->
-						<a href="#buildingPage" data-role="button" data-icon="star">Continue to step two</a>
+						<!-- needs validation  change to a button and add a clicked event that only continues upon txt fields being filled(add proper validation where required)-->
+						<a href="#buildingPage" id="validNext" data-role="button" data-icon="arrow-r" class="check">Continue to step two</a>
 					</form>
 				</ul>
 				<br>
@@ -183,6 +187,7 @@
 
 			<div data-role="header">
 				<h1>Survey</h1>
+				<p id="results"> </p>
 			</div><!-- /header -->
 
 			<div data-role="content">
@@ -386,7 +391,7 @@
 							<!-- PROMPT FOR PICTURE either button or after length width is  entered-->
 							<label for="spacelength"><h3>Space Length</h3></label>
 							<input type="text" name="roomForm" id="spacelength">
-							<!--<input type="text" name="roomForm" id="spacesqfoot">-->
+							<input type="text" name="roomForm" id="spacesqfoot">
 							<label for="spacewidth"><h3>Space Width</h3></label>
 							<input type="text" name="roomForm" id="spacewidth">
 							<label for="spaceheight"><h3>Space Height</h3></label>
@@ -425,7 +430,7 @@
 							<label for="checkbox-samples">Client has reviewed the samples</label>
 							<!-- -->
 						</form>
-						<input type="button" name="buttons" id="addroom" value="add another room?">
+						<input type="submit" name="buttons" id="addroom" value="add another room?">
 					</li>
 				</ul>
 				<br>
@@ -557,7 +562,7 @@
 						</form>
 					<div id="naviBtns" data-role="controlgroup" data-type="horizontal">
 										<a href="#reportsPage" class="guidebtn" data-role="button" Left arrow - data-icon="arrow-l">Reports start</a>
-										<a href="#reportsPage3" class="guidebtn" data-role="button" Right arrow - data-icon="arrow-r">Saving summary</a>
+										<a href="#reportsPage3" class="guidebtn" data-role="button" Right arrow - data-icon="arrow-r">Savings summary</a>
 									</div>
 					</li>
 				</ul>
