@@ -21,6 +21,7 @@
 }
 
 body {
+
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
@@ -43,6 +44,7 @@ body {
     padding:0px;
     text-transform:uppercase;
     width:100%;
+    
 }
 
 /* Portrait layout (default) */
@@ -59,14 +61,13 @@ body {
                                    /* offset horizontal: half of text area width */
 }
 #safetyForm {
-	 position:absolute;             /* position in the center of the screen */
-    left:85%;
+	position:absolute;             /* position in the center of the screen */
+    left:75%;
     top:2%;
-    height:50px;                   /* text area height */
-    width:300px;                   /* text area width */
-    text-align:center;
+    text-align:left;
     padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px; 
+    margin:-115px 0px 0px 0px; 
+    font-size: 20px;
 }
 
 /* Landscape layout (with min-width) */
@@ -87,7 +88,6 @@ h1 {
     padding:0px;
     text-align:center;
 }
-
 .event {
     border-radius:4px;
     -webkit-border-radius:4px;
@@ -130,23 +130,185 @@ h1 {
     width: 500px
 }
 #startBtn {
-	
+	font-size:xx-large !important;
 }
 #cameraBtn{
 	width: 250px;
 	left: 60%;
+	
 }
-
+#EpactTrue{
+	height:30px;
+}
+#EpactFalse{
+	height:30px;
+}
+#EPACT{
+	height:30px;
+}
+#validClientNext{
+	position:absolute;
+	width:250px;
+	height:50px;
+	top:80%;
+	left:80%;
+	
+}
+#validBuildingNext{
+	position:absolute;
+	width:300px;
+	height:50px;
+	top:90%;
+	left:75%;
+	
+}
+#backCompanyInfo{
+	position:absolute;
+	width:300px;
+	height:50px;
+	top:90%;
+	left:50%;
+	
+}
+#backPage{
+	position:absolute;
+	width:300px;
+	height:50px;
+	top:80%;
+	left:50%;
+	
+}
+#nextPage{
+	position:absolute;
+	width:300px;
+	height:50px;
+	top:80%;
+	left:73%;
+	
+}
+#container{
+position:absolute;
+left:50%;
+top:10%;
+width:500px;
+height:400px;
+background-color:#FAFAFA;
+}
+      #buttons {
+        left: 0px;
+        padding: 50px 50px;
+      } 
 .ui-btn { 
-	height: 75px;  
+	height: 30px;  
+}
+.ui-input-text{
+	height:60px;
+	font-size:xx-large!important;
 }
 .guidebtn{
-	width: 250px;
-	left: 40%;
+	width: 50%;
+	left: 30%;
 }
-#proposalForm{
+.normal {
+    background-color:#2489ce!important;
+  	-moz-box-shadow: inset 0px 0px 3px 		#387bbe !important;
+	-webkit-box-shadow: inset 0px 0px 3px 	#387bbe !important;
+	box-shadow: inset 0px 0px 3px 			#387bbe !important;
+	opacity: .50!important;
+	z-index: 0!important;
+}
+
+.active {
+   background-color:#fff!important;
+   
+}
+.chkBoxStyle{
+	position:absolute !important;
+	width: 35px;
+	height: 35px;
+	left:-30%;
+}
+
+#myBtn{
+	width: 80%
+	left:10%;
+}
+#divListRooms{
 	width: 50%;
 }
+#reportGraphs{
+	width:50%;
+	height: 50%;
+	left: 25%;
+	}
+	
+#repoShow{
+ width:35%;
+ height:50%;
+ }
+
+  #tblRightSide{
+ position: absolute;
+ width: 50%;
+ left:50%;
+ top:8%;
+ text-align: left;
+ font-size: 18px;
+ }
+
+ #tblLeftSide{
+ font-size:18px;
+ text-align: left;
+ }
+ #repoShow2{
+ position: absolute;
+ width:50%;
+ height:50%;
+ top:5%;
+ left: 37%;
+ }
+ #tableInstallInfo{
+ 	font-size: 18px;
+	width: 50% !important;
+	text-align: left;
+ }
+ #tableInstallInfo td{
+ 		width:50%;
+ }
+#tableContactInfo{
+	font-size: 18px;
+	width: 100% !important;
+	text-align: left;
+	}
+#tableContactInfo td{
+	width:50%;
+}
+#buildingInfoTable{
+	text-align: left;
+	width: 100%!important;
+	font-size: 18px;
+}
+#buildingInfoTable td{
+	width: 30%;
+	
+}
+
+.text_field_effects{
+	width: 90%;
+	height:30px;
+	background-color:#7CC4E7;
+	opacity: 90%;
+}
+#reportHome{
+position: absolute;
+top:10%;
+left: 40%;
+
+}
+#proposalForm{
+	width: 35%;
+}
+
 #spacesqfoot{
 	visibility:hidden;
 }
